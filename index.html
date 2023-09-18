@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="MathQuiz.css">
+    <title>Math Quiz</title>
+</head>
+<body>
+    <header>
+        <div><h1>Math Ouiz</h1></div>
+        <div><h2 id="score">Score:<span id="showscore"></span></h2></div>
+    </header>
+
+    <div class="quiz-container"><div>
+        <span id="num1">1</span>
+        <span id="op">+</span>
+        <span id="num2">1</span>
+        <span>= ?</span>
+        <input type="text">
+        <button id="btn1">Random</button>
+        <button id="btn2">Submit</button>
+        <h2 id="result"></h2>
+    </div></div>
+
+    <script>
+        var num1 = document.querySelector('#num1')
+        var op = document.querySelector('#op')
+        var num2 = document.querySelector('#num2')
+        var input = document.querySelector('input')
+        document.querySelector('#btn1').addEventListener('click', random)
+        document.querySelector('#btn2').addEventListener('click', checking)
+        let score = 0
+        
+        function random(){
+            num1.innerHTML = Math.floor(Math.random()*9)
+            let ops = ["+", "-", "*", "/"]
+            op.innerHTML = ops[Math.floor(Math.random()*ops.length)]
+            num2.innerHTML = Math.floor(Math.random()*9)
+        }
+
+        function checking(){
+            var ans = eval(num1.innerText+op.innerText+num2.innerText)
+            if(ans == input.value){
+                document.querySelector('#result').innerHTML = 'Ture'
+                document.querySelector('#showscore').innerHTML = ++score
+            }else{
+                document.querySelector('#result').innerHTML = 'False'
+            }
+        }
+    </script>
+</body>
+</html>

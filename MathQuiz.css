@@ -1,0 +1,35 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: wheat;
+    text-align: center;
+}
+
+header{
+    background-color: rgb(87, 3, 119);
+    display: flex;
+    color: white;
+}
+#score{
+    color: white;
+    text-align: left;
+}
+header > div:nth-child(odd){
+    width: 50%;
+    display: flex;
+    justify-content: left;
+}
+header > div:nth-child(even){
+    width: 50%;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.quiz-container{
+    font-size: 200%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+}
